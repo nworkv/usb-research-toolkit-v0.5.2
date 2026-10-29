@@ -1,0 +1,121 @@
+{
+  "configurations": [
+    {
+      "bConfigurationValue": 1,
+      "bDescriptorType": 2,
+      "bLength": 9,
+      "bMaxPower": 125,
+      "bNumInterfaces": 2,
+      "bmAttributes": 128,
+      "iConfiguration": 0,
+      "interfaces": [
+        {
+          "bAlternateSetting": 0,
+          "bDescriptorType": 4,
+          "bInterfaceClass": 2,
+          "bInterfaceNumber": 0,
+          "bInterfaceProtocol": 1,
+          "bInterfaceSubClass": 2,
+          "bLength": 9,
+          "bNumEndpoints": 1,
+          "endpoints": [
+            {
+              "bDescriptorType": 5,
+              "bEndpointAddress": 139,
+              "bInterval": 16,
+              "bLength": 7,
+              "bmAttributes": 3,
+              "wMaxPacketSize": 32
+            }
+          ],
+          "extra_descriptors_hex": "05240010010524010001042402020524060001",
+          "iInterface": 0
+        },
+        {
+          "bAlternateSetting": 0,
+          "bDescriptorType": 4,
+          "bInterfaceClass": 10,
+          "bInterfaceNumber": 1,
+          "bInterfaceProtocol": 0,
+          "bInterfaceSubClass": 0,
+          "bLength": 9,
+          "bNumEndpoints": 2,
+          "endpoints": [
+            {
+              "bDescriptorType": 5,
+              "bEndpointAddress": 129,
+              "bInterval": 0,
+              "bLength": 7,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512
+            },
+            {
+              "bDescriptorType": 5,
+              "bEndpointAddress": 11,
+              "bInterval": 0,
+              "bLength": 7,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512
+            }
+          ],
+          "iInterface": 0
+        }
+      ],
+      "wTotalLength": 67
+    }
+  ],
+  "control_responses": [
+    {
+      "bRequest": 33,
+      "bmRequestType": 161,
+      "data_hex": "00c20100000008",
+      "wIndex": 0,
+      "wValue": 0
+    }
+  ],
+  "device": {
+    "bDescriptorType": 1,
+    "bDeviceClass": 0,
+    "bDeviceProtocol": 0,
+    "bDeviceSubClass": 0,
+    "bLength": 18,
+    "bMaxPacketSize0": 64,
+    "bNumConfigurations": 1,
+    "bcdDevice": 258,
+    "bcdUSB": 512,
+    "iManufacturer": 1,
+    "iProduct": 2,
+    "iSerialNumber": 3,
+    "idProduct": 4354,
+    "idVendor": 4617
+  },
+  "endpoint_io": {
+    "in_payloads": {
+      "129": "5553422d4344432d544553540d0a",
+      "139": "a1200000000002000000"
+    },
+    "out_buffer_bytes": 16384,
+    "repeat_in": false
+  },
+  "profile_name": "template-cdc-acm-serial-variant-0002",
+  "schema_version": 1,
+  "strings": {
+    "1033": {
+      "1": "USB Research Lab",
+      "2": "USB CDC ACM Serial Variant 0002",
+      "3": "LAB-CDC-0001-V0002"
+    }
+  },
+  "template_info": {
+    "category": "CDC ACM serial adapter",
+    "generated_from": "template-cdc-acm-serial",
+    "generated_variant": 2,
+    "generation_mode": "safe",
+    "notes": "Representative CDC ACM descriptors for a lab serial device. Runtime compatibility and Windows driver binding must be verified on the target host.",
+    "runtime_ready": true
+  },
+  "validation": {
+    "calculated_fields": "auto",
+    "mode": "strict"
+  }
+}

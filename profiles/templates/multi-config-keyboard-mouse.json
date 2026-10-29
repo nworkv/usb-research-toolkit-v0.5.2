@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "profile_name": "template-multi-config-keyboard-mouse",
+  "device": {
+    "bLength": 18,
+    "bDescriptorType": 1,
+    "bcdUSB": 512,
+    "bDeviceClass": 0,
+    "bDeviceSubClass": 0,
+    "bDeviceProtocol": 0,
+    "bMaxPacketSize0": 64,
+    "idVendor": 4617,
+    "idProduct": 5122,
+    "bcdDevice": 256,
+    "iManufacturer": 1,
+    "iProduct": 2,
+    "iSerialNumber": 3,
+    "bNumConfigurations": 2
+  },
+  "strings": {
+    "1033": {
+      "1": "USB Research Lab",
+      "2": "USB Multi-Configuration Keyboard/Mouse",
+      "3": "LAB-TEMPLATE-MULTI-CON"
+    }
+  },
+  "configurations": [
+    {
+      "bLength": 9,
+      "bDescriptorType": 2,
+      "wTotalLength": 0,
+      "bNumInterfaces": 1,
+      "bConfigurationValue": 1,
+      "iConfiguration": 1,
+      "bmAttributes": 128,
+      "bMaxPower": 50,
+      "interfaces": [
+        {
+          "bLength": 9,
+          "bDescriptorType": 4,
+          "bInterfaceNumber": 0,
+          "bAlternateSetting": 0,
+          "bNumEndpoints": 1,
+          "bInterfaceClass": 3,
+          "bInterfaceSubClass": 1,
+          "bInterfaceProtocol": 1,
+          "iInterface": 0,
+          "extra_descriptors_hex": "092111010001223f00",
+          "endpoints": [
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 129,
+              "bmAttributes": 3,
+              "wMaxPacketSize": 8,
+              "bInterval": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bLength": 9,
+      "bDescriptorType": 2,
+      "wTotalLength": 0,
+      "bNumInterfaces": 1,
+      "bConfigurationValue": 2,
+      "iConfiguration": 2,
+      "bmAttributes": 128,
+      "bMaxPower": 50,
+      "interfaces": [
+        {
+          "bLength": 9,
+          "bDescriptorType": 4,
+          "bInterfaceNumber": 0,
+          "bAlternateSetting": 0,
+          "bNumEndpoints": 1,
+          "bInterfaceClass": 3,
+          "bInterfaceSubClass": 1,
+          "bInterfaceProtocol": 2,
+          "iInterface": 0,
+          "extra_descriptors_hex": "092111010001223e00",
+          "endpoints": [
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 129,
+              "bmAttributes": 3,
+              "wMaxPacketSize": 4,
+              "bInterval": 10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "mode": "strict",
+    "calculated_fields": "auto"
+  },
+  "endpoint_io": {
+    "out_buffer_bytes": 16384,
+    "repeat_in": false,
+    "in_payloads": {
+      "129": "0000000000000000"
+    },
+    "repeat_in_addresses": [
+      129
+    ]
+  },
+  "template_info": {
+    "category": "Template Multi Config Keyboard Mouse",
+    "runtime_ready": true,
+    "notes": "Demonstrates two USB configurations; the host selects one configuration at a time. Runtime alternates are not implemented; configuration switching is supported by re-enabling endpoints."
+  },
+  "raw_descriptors": {
+    "34:0": "05010906a101050719e029e71500250175019508810295017508910195057501050819012905910295017503910195067508150025650507190029658100c0"
+  },
+  "interface_descriptors": {
+    "1:0": "05010906a101050719e029e71500250175019508810295017508910195057501050819012905910295017503910195067508150025650507190029658100c0",
+    "2:0": "05010902a1010901a100050919012903150025019503750181029501750581010501093009311581257f75089502810609381581257f750895018106c0c0"
+  },
+  "runtime": {
+    "interfaces": [
+      {
+        "configuration_value": 1,
+        "interface_number": 0,
+        "class": "hid",
+        "boot_protocol": true,
+        "interrupt_in_endpoint": 129,
+        "control_report_hex": "0000000000000000",
+        "interrupt_in_payload_hex": "0000000000000000"
+      },
+      {
+        "configuration_value": 2,
+        "interface_number": 0,
+        "class": "hid",
+        "boot_protocol": true,
+        "interrupt_in_endpoint": 129,
+        "control_report_hex": "00000000",
+        "interrupt_in_payload_hex": "00000000"
+      }
+    ]
+  },
+  "control_responses": []
+}

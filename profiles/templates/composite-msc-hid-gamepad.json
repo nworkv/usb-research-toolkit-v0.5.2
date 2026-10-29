@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "profile_name": "template-composite-msc-hid-gamepad",
+  "device": {
+    "bLength": 18,
+    "bDescriptorType": 1,
+    "bcdUSB": 512,
+    "bDeviceClass": 0,
+    "bDeviceSubClass": 0,
+    "bDeviceProtocol": 0,
+    "bMaxPacketSize0": 64,
+    "idVendor": 4617,
+    "idProduct": 5121,
+    "bcdDevice": 256,
+    "iManufacturer": 1,
+    "iProduct": 2,
+    "iSerialNumber": 3,
+    "bNumConfigurations": 1
+  },
+  "strings": {
+    "1033": {
+      "1": "USB Research Lab",
+      "2": "USB Composite MSC + HID Gamepad",
+      "3": "LAB-TEMPLATE-COMPOSITE"
+    }
+  },
+  "configurations": [
+    {
+      "bLength": 9,
+      "bDescriptorType": 2,
+      "wTotalLength": 0,
+      "bNumInterfaces": 2,
+      "bConfigurationValue": 1,
+      "iConfiguration": 0,
+      "bmAttributes": 128,
+      "bMaxPower": 50,
+      "interfaces": [
+        {
+          "bLength": 9,
+          "bDescriptorType": 4,
+          "bInterfaceNumber": 0,
+          "bAlternateSetting": 0,
+          "bNumEndpoints": 2,
+          "bInterfaceClass": 8,
+          "bInterfaceSubClass": 6,
+          "bInterfaceProtocol": 80,
+          "iInterface": 0,
+          "endpoints": [
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 129,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512,
+              "bInterval": 0
+            },
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 1,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512,
+              "bInterval": 0
+            }
+          ]
+        },
+        {
+          "bLength": 9,
+          "bDescriptorType": 4,
+          "bInterfaceNumber": 1,
+          "bAlternateSetting": 0,
+          "bNumEndpoints": 1,
+          "bInterfaceClass": 3,
+          "bInterfaceSubClass": 0,
+          "bInterfaceProtocol": 0,
+          "iInterface": 0,
+          "extra_descriptors_hex": "092111010001224800",
+          "endpoints": [
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 130,
+              "bmAttributes": 3,
+              "wMaxPacketSize": 11,
+              "bInterval": 10
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "mode": "strict",
+    "calculated_fields": "auto"
+  },
+  "endpoint_io": {
+    "out_buffer_bytes": 16384,
+    "repeat_in": false,
+    "in_payloads": {
+      "130": "0000000000000000000000"
+    },
+    "repeat_in_addresses": [
+      130
+    ]
+  },
+  "template_info": {
+    "category": "Template Composite Msc Hid Gamepad",
+    "runtime_ready": true,
+    "notes": "Generic profile for an isolated test lab; test on the exact host and UDC."
+  },
+  "raw_descriptors": {
+    "34:0": "05010905a101050919012910150025017501951081020501093009310932093516008026ff7f75109504810205010939150025073500463b016514750495018142750495018103c0"
+  },
+  "interface_descriptors": {
+    "1:1": "05010905a101050919012910150025017501951081020501093009310932093516008026ff7f75109504810205010939150025073500463b016514750495018142750495018103c0"
+  },
+  "runtime": {
+    "interfaces": [
+      {
+        "configuration_value": 1,
+        "interface_number": 0,
+        "class": "msc-bot"
+      },
+      {
+        "configuration_value": 1,
+        "interface_number": 1,
+        "class": "hid",
+        "boot_protocol": false,
+        "interrupt_in_endpoint": 130,
+        "control_report_hex": "0000000000000000000000",
+        "interrupt_in_payload_hex": "0000000000000000000000"
+      }
+    ],
+    "mass_storage": {
+      "enabled": true,
+      "configuration_value": 1,
+      "interface_number": 0,
+      "in_endpoint": 129,
+      "out_endpoint": 1,
+      "backing_file": "runs/storage/usb-lab.img",
+      "block_size": 512,
+      "read_only": false
+    }
+  },
+  "control_responses": []
+}

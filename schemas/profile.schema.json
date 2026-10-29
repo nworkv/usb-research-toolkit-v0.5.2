@@ -1,0 +1,191 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/usb-research/profile.schema.json",
+  "title": "USB Research Device Profile",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "profile_name",
+    "device",
+    "configurations",
+    "validation"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "profile_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "device": {
+      "type": "object",
+      "required": [
+        "idVendor",
+        "idProduct"
+      ],
+      "properties": {
+        "bLength": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bDescriptorType": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bcdUSB": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "bDeviceClass": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bDeviceSubClass": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bDeviceProtocol": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bMaxPacketSize0": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "idVendor": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "idProduct": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "bcdDevice": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "iManufacturer": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "iProduct": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "iSerialNumber": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "bNumConfigurations": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        }
+      },
+      "additionalProperties": true
+    },
+    "strings": {
+      "type": "object",
+      "description": "Language ID keys map to string-index-to-UTF-8-text objects."
+    },
+    "configurations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "properties": {
+          "interfaces": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "interfaces"
+        ],
+        "additionalProperties": true
+      }
+    },
+    "raw_descriptors": {
+      "type": "object",
+      "description": "Research mode only. Keys are descriptor type:index and values are hex strings."
+    },
+    "control_responses": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "bmRequestType",
+          "bRequest",
+          "data_hex"
+        ],
+        "properties": {
+          "bmRequestType": {
+            "type": "integer"
+          },
+          "bRequest": {
+            "type": "integer"
+          },
+          "wValue": {
+            "type": "integer"
+          },
+          "wIndex": {
+            "type": "integer"
+          },
+          "data_hex": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "enum": [
+            "strict",
+            "research"
+          ]
+        },
+        "calculated_fields": {
+          "enum": [
+            "auto",
+            "manual"
+          ]
+        }
+      },
+      "additionalProperties": true
+    },
+    "endpoint_io": {
+      "type": "object",
+      "properties": {
+        "out_buffer_bytes": {
+          "type": "integer",
+          "minimum": 64,
+          "maximum": 65536
+        },
+        "repeat_in": {
+          "type": "boolean"
+        },
+        "in_payloads": {
+          "type": "object",
+          "description": "Endpoint address keys (decimal or 0x-prefixed strings) mapped to hex payloads."
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

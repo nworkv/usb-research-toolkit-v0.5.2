@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "profile_name": "template-msc-bot-disk",
+  "device": {
+    "bLength": 18,
+    "bDescriptorType": 1,
+    "bcdUSB": 512,
+    "bDeviceClass": 0,
+    "bDeviceSubClass": 0,
+    "bDeviceProtocol": 0,
+    "bMaxPacketSize0": 64,
+    "idVendor": 4617,
+    "idProduct": 4864,
+    "bcdDevice": 256,
+    "iManufacturer": 1,
+    "iProduct": 2,
+    "iSerialNumber": 3,
+    "bNumConfigurations": 1
+  },
+  "strings": {
+    "1033": {
+      "1": "USB Research Lab",
+      "2": "USB MSC BOT Virtual Disk",
+      "3": "LAB-TEMPLATE-MSC-BOT-D"
+    }
+  },
+  "configurations": [
+    {
+      "bLength": 9,
+      "bDescriptorType": 2,
+      "wTotalLength": 0,
+      "bNumInterfaces": 1,
+      "bConfigurationValue": 1,
+      "iConfiguration": 0,
+      "bmAttributes": 128,
+      "bMaxPower": 50,
+      "interfaces": [
+        {
+          "bLength": 9,
+          "bDescriptorType": 4,
+          "bInterfaceNumber": 0,
+          "bAlternateSetting": 0,
+          "bNumEndpoints": 2,
+          "bInterfaceClass": 8,
+          "bInterfaceSubClass": 6,
+          "bInterfaceProtocol": 80,
+          "iInterface": 0,
+          "endpoints": [
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 129,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512,
+              "bInterval": 0
+            },
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 1,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512,
+              "bInterval": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "mode": "strict",
+    "calculated_fields": "auto"
+  },
+  "endpoint_io": {
+    "out_buffer_bytes": 16384,
+    "repeat_in": false,
+    "in_payloads": {}
+  },
+  "template_info": {
+    "category": "USB Mass Storage Bulk-Only Transport with SCSI disk image",
+    "runtime_ready": true,
+    "notes": "Implements BOT CBW/CSW and common SCSI commands backed by a regular block image. Create the image first. Never mount/use the same image on the Pi while the host has it attached."
+  },
+  "runtime": {
+    "interfaces": [
+      {
+        "configuration_value": 1,
+        "interface_number": 0,
+        "class": "msc-bot"
+      }
+    ],
+    "mass_storage": {
+      "enabled": true,
+      "configuration_value": 1,
+      "interface_number": 0,
+      "in_endpoint": 129,
+      "out_endpoint": 1,
+      "backing_file": "runs/storage/usb-lab.img",
+      "block_size": 512,
+      "read_only": false
+    }
+  },
+  "control_responses": []
+}

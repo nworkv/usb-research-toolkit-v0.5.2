@@ -1,0 +1,11 @@
+#include "usb_research/raw_gadget_backend.hpp"
+#include "usb_research/profile.hpp"
+#include <filesystem>
+#include <iostream>
+#include <stdexcept>
+
+using namespace usb_research;
+static void usage(){std::cout<<"usb-connect - Linux USB Gadget connection engine\n\n"
+"Usage:\n  usb-connect probe\n  usb-connect run <profile.json> --backend raw-gadget --udc-driver <name> --udc-device <name> [--speed high|full|low] [--trace <file>] [--run-id <id>] [--allow-research]\n\n"
+"Run this on the Raspberry Pi Gadget side, not on the Linux/Windows host.\n";}
+int main(int argc,char**argv){try{if(argc<2){usage();return 2;}std::string cmd=argv[1];if(cmd=="probe")return probe_usb_device_mode();if(cmd!="run"){usage();return 2;}if(argc<3)throw std::runtime_error("run requires a profile JSON path");RawGadgetOptions o;o.profile_path=argv[2];o.trace_path="runs/usb-run/device.jsonl";for(int i=3;i<argc;++i){std::string a=argv[i];if(a=="--backend"&&i+1<argc){auto b=std::string(argv[++i]);if(b!="raw-gadget")throw std::runtime_error("only --backend raw-gadget is supported in this version");}else if(a=="--udc-driver"&&i+1<argc)o.udc_driver=argv[++i];else if(a=="--udc-device"&&i+1<argc)o.udc_device=argv[++i];else if(a=="--speed"&&i+1<argc)o.speed=argv[++i];else if(a=="--trace"&&i+1<argc)o.trace_path=argv[++i];else if(a=="--run-id"&&i+1<argc)o.run_id=argv[++i];else if(a=="--allow-research")o.allow_research=true;else throw std::runtime_error("unknown or incomplete argument: "+a);}Json p=Json::parse(read_text_file(o.profile_path));const std::string mode=p.at("validation").at("mode").as_string("strict");auto report=validate_profile(p,mode);std::cerr<<report.to_json().dump(2)<<"\n";if(mode=="research"&&!o.allow_research)throw std::runtime_error("research profile refused. Pass --allow-research only when connected to your own isolated test host.");if(!report.profile_valid&&mode!="research")throw std::runtime_error("profile validation failed; see errors above");if(!report.profile_valid&&mode=="research")std::cerr<<"Research mode: validation issues are being passed through explicitly; use only with an isolated test host.\n";auto cp=compile_profile(p);std::cout<<"Starting profile: "<<cp.name<<"\n";return run_raw_gadget(o,cp);}catch(const std::exception&e){std::cerr<<"usb-connect: "<<e.what()<<"\n";return 2;}}

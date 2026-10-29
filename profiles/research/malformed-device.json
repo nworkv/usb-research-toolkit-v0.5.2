@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "profile_name": "usb2-research-mismatched-length",
+  "device": {
+    "bLength": 18, "bDescriptorType": 1, "bcdUSB": 512,
+    "bDeviceClass": 0, "bDeviceSubClass": 0, "bDeviceProtocol": 0,
+    "bMaxPacketSize0": 64, "idVendor": 4617, "idProduct": 2,
+    "bcdDevice": 256, "iManufacturer": 1, "iProduct": 2,
+    "iSerialNumber": 3, "bNumConfigurations": 1
+  },
+  "strings": { "1033": { "1": "USB Research Lab", "2": "Intentionally malformed profile", "3": "LAB-0002" } },
+  "configurations": [
+    {
+      "bLength": 9, "bDescriptorType": 2, "wTotalLength": 65535,
+      "bNumInterfaces": 2, "bConfigurationValue": 1,
+      "iConfiguration": 0, "bmAttributes": 128, "bMaxPower": 50,
+      "interfaces": [
+        {
+          "bLength": 9, "bDescriptorType": 4, "bInterfaceNumber": 0,
+          "bAlternateSetting": 0, "bNumEndpoints": 0,
+          "bInterfaceClass": 255, "bInterfaceSubClass": 0,
+          "bInterfaceProtocol": 0, "iInterface": 0, "endpoints": []
+        }
+      ]
+    }
+  ],
+  "validation": { "mode": "research", "calculated_fields": "manual" }
+}

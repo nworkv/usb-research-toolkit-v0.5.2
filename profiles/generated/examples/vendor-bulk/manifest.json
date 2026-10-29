@@ -1,0 +1,27 @@
+{
+  "count": 2,
+  "fields": "pid,revision,strings,power,endpoint-addresses,packet-size,interval",
+  "generation_mode": "safe",
+  "profiles": [
+    {
+      "file": "profiles/generated/examples/vendor-bulk/template-vendor-bulk-test-device-variant-0001.json",
+      "idProduct": 4097,
+      "idVendor": 4617,
+      "issue_count": 1,
+      "profile_name": "template-vendor-bulk-test-device-variant-0001",
+      "profile_valid": true
+    },
+    {
+      "file": "profiles/generated/examples/vendor-bulk/template-vendor-bulk-test-device-variant-0002.json",
+      "idProduct": 4098,
+      "idVendor": 4617,
+      "issue_count": 1,
+      "profile_name": "template-vendor-bulk-test-device-variant-0002",
+      "profile_valid": true
+    }
+  ],
+  "schema_version": 1,
+  "seed": 20261022,
+  "source_profile": "template-vendor-bulk-test-device",
+  "speed_assumption": "high"
+}

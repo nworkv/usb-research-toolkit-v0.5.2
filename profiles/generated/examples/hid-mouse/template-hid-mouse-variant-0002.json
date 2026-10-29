@@ -1,0 +1,85 @@
+{
+  "configurations": [
+    {
+      "bConfigurationValue": 1,
+      "bDescriptorType": 2,
+      "bLength": 9,
+      "bMaxPower": 125,
+      "bNumInterfaces": 1,
+      "bmAttributes": 128,
+      "iConfiguration": 0,
+      "interfaces": [
+        {
+          "bAlternateSetting": 0,
+          "bDescriptorType": 4,
+          "bInterfaceClass": 3,
+          "bInterfaceNumber": 0,
+          "bInterfaceProtocol": 0,
+          "bInterfaceSubClass": 0,
+          "bLength": 9,
+          "bNumEndpoints": 1,
+          "endpoints": [
+            {
+              "bDescriptorType": 5,
+              "bEndpointAddress": 139,
+              "bInterval": 10,
+              "bLength": 7,
+              "bmAttributes": 3,
+              "wMaxPacketSize": 8
+            }
+          ],
+          "extra_descriptors_hex": "092111010001223200",
+          "iInterface": 0
+        }
+      ],
+      "wTotalLength": 34
+    }
+  ],
+  "device": {
+    "bDescriptorType": 1,
+    "bDeviceClass": 0,
+    "bDeviceProtocol": 0,
+    "bDeviceSubClass": 0,
+    "bLength": 18,
+    "bMaxPacketSize0": 64,
+    "bNumConfigurations": 1,
+    "bcdDevice": 258,
+    "bcdUSB": 512,
+    "iManufacturer": 1,
+    "iProduct": 2,
+    "iSerialNumber": 3,
+    "idProduct": 4610,
+    "idVendor": 4617
+  },
+  "endpoint_io": {
+    "in_payloads": {
+      "139": "00000000"
+    },
+    "out_buffer_bytes": 16384,
+    "repeat_in": true
+  },
+  "profile_name": "template-hid-mouse-variant-0002",
+  "raw_descriptors": {
+    "34:0": "05010902a1010901a100050919012903150025019503750181029501750581010501093009311581257f750895028106c0c0"
+  },
+  "schema_version": 1,
+  "strings": {
+    "1033": {
+      "1": "USB Research Lab",
+      "2": "USB HID Mouse Test Variant 0002",
+      "3": "LAB-MOUSE-0001-V0002"
+    }
+  },
+  "template_info": {
+    "category": "HID relative mouse",
+    "generated_from": "template-hid-mouse",
+    "generated_variant": 2,
+    "generation_mode": "safe",
+    "notes": "Minimal HID mouse report descriptor; emits a stationary zero-motion report. No keyboard input or keystroke injection is implemented.",
+    "runtime_ready": true
+  },
+  "validation": {
+    "calculated_fields": "auto",
+    "mode": "strict"
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "profile_name": "usb2-lab-vendor-device",
+  "device": {
+    "bLength": 18,
+    "bDescriptorType": 1,
+    "bcdUSB": 512,
+    "bDeviceClass": 0,
+    "bDeviceSubClass": 0,
+    "bDeviceProtocol": 0,
+    "bMaxPacketSize0": 64,
+    "idVendor": 4617,
+    "idProduct": 1,
+    "bcdDevice": 256,
+    "iManufacturer": 1,
+    "iProduct": 2,
+    "iSerialNumber": 3,
+    "bNumConfigurations": 1
+  },
+  "strings": {
+    "1033": {
+      "1": "USB Research Lab",
+      "2": "USB 2.0 Test Device",
+      "3": "LAB-0001"
+    }
+  },
+  "configurations": [
+    {
+      "bLength": 9,
+      "bDescriptorType": 2,
+      "wTotalLength": 32,
+      "bNumInterfaces": 1,
+      "bConfigurationValue": 1,
+      "iConfiguration": 0,
+      "bmAttributes": 128,
+      "bMaxPower": 50,
+      "interfaces": [
+        {
+          "bLength": 9,
+          "bDescriptorType": 4,
+          "bInterfaceNumber": 0,
+          "bAlternateSetting": 0,
+          "bNumEndpoints": 2,
+          "bInterfaceClass": 255,
+          "bInterfaceSubClass": 0,
+          "bInterfaceProtocol": 0,
+          "iInterface": 0,
+          "endpoints": [
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 129,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512,
+              "bInterval": 0
+            },
+            {
+              "bLength": 7,
+              "bDescriptorType": 5,
+              "bEndpointAddress": 1,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512,
+              "bInterval": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validation": {
+    "mode": "strict",
+    "calculated_fields": "auto"
+  },
+  "endpoint_io": {
+    "out_buffer_bytes": 16384,
+    "repeat_in": true,
+    "in_payloads": {
+      "129": "5553422d50492d524553504f4e5345"
+    }
+  },
+  "control_responses": [
+    {
+      "bmRequestType": 192,
+      "bRequest": 90,
+      "wValue": 0,
+      "wIndex": 0,
+      "data_hex": "5553422d50494c4142"
+    }
+  ]
+}

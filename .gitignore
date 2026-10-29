@@ -1,0 +1,18 @@
+/build/
+/cmake-build-*/
+/runs/
+*.pcap
+*.pcapng
+*.jsonl
+*.log
+.vs/
+.vscode/
+out/
+# Keep checked-in examples, ignore additional generated profile runs.
+/profiles/generated/*
+!/profiles/generated/examples/
+!/profiles/generated/examples/**
+
+__pycache__/
+*.py[cod]
+.DS_Store

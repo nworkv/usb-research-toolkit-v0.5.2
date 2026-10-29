@@ -1,0 +1,98 @@
+{
+  "configurations": [
+    {
+      "bConfigurationValue": 1,
+      "bDescriptorType": 2,
+      "bLength": 9,
+      "bMaxPower": 125,
+      "bNumInterfaces": 1,
+      "bmAttributes": 128,
+      "iConfiguration": 0,
+      "interfaces": [
+        {
+          "bAlternateSetting": 0,
+          "bDescriptorType": 4,
+          "bInterfaceClass": 255,
+          "bInterfaceNumber": 0,
+          "bInterfaceProtocol": 0,
+          "bInterfaceSubClass": 0,
+          "bLength": 9,
+          "bNumEndpoints": 2,
+          "endpoints": [
+            {
+              "bDescriptorType": 5,
+              "bEndpointAddress": 139,
+              "bInterval": 0,
+              "bLength": 7,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512
+            },
+            {
+              "bDescriptorType": 5,
+              "bEndpointAddress": 1,
+              "bInterval": 0,
+              "bLength": 7,
+              "bmAttributes": 2,
+              "wMaxPacketSize": 512
+            }
+          ],
+          "iInterface": 0
+        }
+      ],
+      "wTotalLength": 32
+    }
+  ],
+  "control_responses": [
+    {
+      "bRequest": 90,
+      "bmRequestType": 192,
+      "data_hex": "5553422d50494c4142",
+      "wIndex": 0,
+      "wValue": 0
+    }
+  ],
+  "device": {
+    "bDescriptorType": 1,
+    "bDeviceClass": 0,
+    "bDeviceProtocol": 0,
+    "bDeviceSubClass": 0,
+    "bLength": 18,
+    "bMaxPacketSize0": 64,
+    "bNumConfigurations": 1,
+    "bcdDevice": 258,
+    "bcdUSB": 512,
+    "iManufacturer": 1,
+    "iProduct": 2,
+    "iSerialNumber": 3,
+    "idProduct": 4098,
+    "idVendor": 4617
+  },
+  "endpoint_io": {
+    "in_payloads": {
+      "139": "5553422d50492d524553504f4e5345"
+    },
+    "out_buffer_bytes": 16384,
+    "repeat_in": true
+  },
+  "profile_name": "template-vendor-bulk-test-device-variant-0002",
+  "schema_version": 1,
+  "strings": {
+    "1033": {
+      "1": "USB Research Lab",
+      "2": "USB Lab Vendor Bulk Test Device Variant 0002",
+      "3": "LAB-VENDOR-0001-V0002"
+    }
+  },
+  "template_info": {
+    "category": "vendor-specific bulk test device",
+    "generated_from": "template-vendor-bulk-test-device",
+    "generated_variant": 2,
+    "generation_mode": "safe",
+    "notes": "Generic laboratory profile; does not impersonate a named commercial product. Replace VID/PID with identifiers allocated for your own test.",
+    "runtime_ready": true
+  },
+  "validation": {
+    "calculated_fields": "auto",
+    "mode": "strict"
+  }
+}
